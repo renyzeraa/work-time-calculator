@@ -1,22 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, Settings } from "lucide-react";
+import { Clock } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useTheme } from "next-themes";
-import { Switch } from "@/components/ui/switch";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import confetti from 'canvas-confetti';
+import { ModalSettings } from "@/components/modal-settings";
 
 export default function Home() {
   const [morningEntry, setMorningEntry] = useState("");
@@ -129,55 +122,14 @@ export default function Home() {
             <Clock className="h-6 w-6" />
             <h1 className="text-2xl font-bold">Work Time Calculator</h1>
           </div>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Settings className="h-5 w-5" />
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Settings</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4 pt-4">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="theme">Dark Mode</Label>
-                  <Switch
-                    id="theme"
-                    checked={theme === "dark"}
-                    onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Work Hours</Label>
-                  <div className="flex gap-4">
-                    <div className="flex-1 space-y-1">
-                      <Label htmlFor="hours">Hours</Label>
-                      <Input
-                        id="hours"
-                        type="number"
-                        min="0"
-                        max="24"
-                        value={workHours}
-                        onChange={(e) => setWorkHours(Number(e.target.value))}
-                      />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <Label htmlFor="minutes">Minutes</Label>
-                      <Input
-                        id="minutes"
-                        type="number"
-                        min="0"
-                        max="59"
-                        value={workMinutes}
-                        onChange={(e) => setWorkMinutes(Number(e.target.value))}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <ModalSettings
+            theme={theme}
+            setTheme={setTheme}
+            workHours={workHours}
+            setWorkHours={setWorkHours}
+            workMinutes={workMinutes}
+            setWorkMinutes={setWorkMinutes}
+          />
         </div>
 
         <div className="space-y-4">

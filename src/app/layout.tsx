@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Work Time Calculator',
   description: 'Calculate remaining work time',
+  icons: './favicon.png'
 };
 
 export default function RootLayout({
