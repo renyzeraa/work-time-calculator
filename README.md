@@ -16,9 +16,11 @@ A fun and simple app to calculate when you can leave work! 🎉 If you complete 
    git clone https://github.com/your-username/work-time-calculator.git
    ```
 2. Navigate to the project directory:
-  ```bash
-   cd work-time-calculator
-   ```
+
+```bash
+ cd work-time-calculator
+```
+
 3. Install the dependencies:
    ```bash
    npm install
@@ -27,12 +29,18 @@ A fun and simple app to calculate when you can leave work! 🎉 If you complete 
    ```bash
    npm run dev
    ```
-5. Open your browser and go to http://localhost:3000. 
-   
-🛠️ How to Use
- 1. Fill in the start and end times for your work shift.
- 2. The app will calculate the exact time you can leave and let you know if you’ve worked overtime.
- 3. If you’ve completed your full shift, celebrate with a fun confetti animation!
+5. Open your browser and go to http://localhost:3000.
+
+## 🛠️ How to Use
+
+1.  Fill in the start and end times for your work shift.
+2.  The app will calculate the exact time you can leave and let you know if you’ve worked overtime.
+3.  If you’ve completed your full shift, celebrate with a fun confetti animation!
+
+## Deploy 🚀
+
+[site](https://work-time-calculator-seven.vercel.app/)
+![image](https://github.com/user-attachments/assets/dc5936cc-db9a-49c8-9b13-1986ddc6f941)
 
 ---
 
