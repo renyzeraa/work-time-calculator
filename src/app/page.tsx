@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useTheme } from "next-themes";
 import confetti from 'canvas-confetti';
 import { ModalSettings } from "@/components/modal-settings";
+import { triggerConfetti } from "@/lib/confetti";
 
 export default function Home() {
   const [morningEntry, setMorningEntry] = useState("");
@@ -23,48 +24,7 @@ export default function Home() {
   const [workMinutes, setWorkMinutes] = useState(48);
   const { theme, setTheme } = useTheme();
 
-  const triggerConfetti = () => {
-    const count = 200;
-    const defaults = {
-      origin: { y: 0.7 },
-      zIndex: 1000,
-    };
 
-    function fire(particleRatio: number, opts: confetti.Options) {
-      confetti({
-        ...defaults,
-        ...opts,
-        particleCount: Math.floor(count * particleRatio),
-      });
-    }
-
-    fire(0.25, {
-      spread: 26,
-      startVelocity: 55,
-    });
-
-    fire(0.2, {
-      spread: 60,
-    });
-
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
-
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-    });
-  };
 
   const calculateTimes = () => {
     if (!morningEntry || !morningExit || !afternoonEntry) {
