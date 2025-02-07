@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useTheme } from "next-themes";
-import confetti from 'canvas-confetti';
 import { ModalSettings } from "@/components/modal-settings";
 import { triggerConfetti } from "@/lib/confetti";
 
@@ -23,8 +22,6 @@ export default function Home() {
   const [workHours, setWorkHours] = useState(8);
   const [workMinutes, setWorkMinutes] = useState(48);
   const { theme, setTheme } = useTheme();
-
-
 
   const calculateTimes = () => {
     if (!morningEntry || !morningExit || !afternoonEntry) {
