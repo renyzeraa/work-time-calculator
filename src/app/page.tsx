@@ -56,16 +56,17 @@ export default function Home() {
       `${String(leavingHours).padStart(2, '0')}:${String(leavingMinutes).padStart(2, '0')}`
     );
 
-    if (remainingMinutesNoFlex <= 0) {
+    const hours = Math.floor(remainingMinutesWithFlex / 60);
+    const minutes = remainingMinutesWithFlex % 60;
+    if (remainingMinutesNoFlex <= 0 || (hours <= 0 && minutes <= 0)) {
       setRemainingTime("You can leave now!");
       const extraMinutes = Math.abs(remainingMinutesNoFlex);
       const extraHours = Math.floor(extraMinutes / 60);
       const extraMins = extraMinutes % 60;
-      setExtraTime(`+${extraHours}h ${extraMins}m extra`);
+      setExtraTime(remainingMinutesNoFlex > 0 ? 'No extra 🙁' : `+${extraHours}h ${extraMins}m extra`);
       triggerConfetti();
     } else {
-      const hours = Math.floor(remainingMinutesWithFlex / 60);
-      const minutes = remainingMinutesWithFlex % 60;
+
       setRemainingTime(`${hours}h ${minutes}m remaining`);
       setExtraTime(null);
     }
